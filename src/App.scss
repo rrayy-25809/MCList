@@ -7,7 +7,7 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
-    background: linear-gradient(180deg, #101726 30%, #000000 100%) !important;
+    background: linear-gradient(180deg, #101726 30%, #04020b 100%) !important;
     color: #e2e8f0;
 }
 
@@ -49,7 +49,106 @@ body {
         color: #94a3b8;
         margin-bottom: 2rem;
     }
+
+    .server-list{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        align-items: center;
+        margin: 2rem 0;
+
+        & button {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+    }
 }
+
+.server-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    width: 100%;
+
+    .server-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        margin: 1rem 0;
+    }
+
+    .server-desc {
+        color: #94a3b8;
+        margin-bottom: 1.5rem;
+    }
+
+    .server-info {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.server-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        
+        &.Offline {
+            background-color: #ef4444;
+        }
+    
+        &.Online {
+            background-color: #10b981;
+        }
+    }
+    
+    .status-text {
+        color: #e2e8f0;
+        font-size: 0.9rem;
+    }
+}
+
+.info-box {
+    background-color: #0f172a;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+
+    .info-label {
+        color: #64748b;
+        font-size: 0.85rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .info-value {
+        color: #e2e8f0;
+        font-weight: 500;
+    }
+}
+
+
 
 .footer {
     text-align: center;
