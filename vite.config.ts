@@ -2,28 +2,27 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig(({ mode }) => {
-    const env = loadEnv(mode, '.', '');
-
-    console.log('ENV is loaded:', env);
+export default defineConfig(({ command, mode }) => {
+    // VITE_ 접두사 환경변수만 로드
+    const env = loadEnv(mode, process.cwd(), 'VITE_');
+    
+    // 환경변수 디버깅
+    console.log('Mode:', mode);
+    console.log('Command:', command);
+    console.log('Environment variables:', env);
 
     return {
       plugins: [react()],
       server: {
         port: 5173,
-        proxy: {
-          // /api/** 요청을 백엔드로 프록시
-          '/api': {
-            target: env.MAIN_API_URL,
-            changeOrigin: true,
-            secure: false,
-            rewrite: (path) => path.replace('/api', ""),
-          },
-        },
       },
       define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        // 전역 환경변수 정의
+        'process.env': JSON.stringify({
+          NODE_ENV: mode,
+          VITE_MAIN_API_URL: env.VITE_MAIN_API_URL,
+          VITE_GEMINI_API_KEY: env.VITE_GEMINI_API_KEY,
+        })
       },
       resolve: {
         alias: {
