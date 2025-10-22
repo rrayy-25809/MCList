@@ -45,8 +45,8 @@ export const ServerDetail: React.FC<ServerDetailProps> = ({ server, onBack, curr
       try {
         const [allReviews, allGallery] = await Promise.all([fetchReviews(), fetchGalleryPosts()]);
         if (!mounted) return;
-        setReviews(allReviews.filter(r => r.serverId === server.id));
-        setGalleryPosts(allGallery.filter(p => p.serverId === server.id));
+        setReviews(allReviews.filter(r => r.serverId == server.id));
+        setGalleryPosts(allGallery.filter(p => p.serverId == server.id));
       } catch (err) {
         // eslint-disable-next-line no-console
         console.warn('Failed to load reviews or gallery posts', err);

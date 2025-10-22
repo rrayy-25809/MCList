@@ -14,10 +14,10 @@ export default defineConfig(({ mode }) => {
         proxy: {
           // /api/** 요청을 백엔드로 프록시
           '/api': {
-            target: process.env.BACKEND_URL || 'http://localhost:4000',
+            target: env.MAIN_API_URL,
             changeOrigin: true,
             secure: false,
-            rewrite: (path) => path.replace(/^\/api/, '/api'),
+            rewrite: (path) => path.replace('/api', ""),
           },
         },
       },
