@@ -3,16 +3,16 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import type { Review } from '../types';
 
-if (!process.env.API_KEY) {
+if (!process.env.VITE_GEMINI_API_KEY) {
   // This is a placeholder for environments where the key is not set.
   // The app will function with a warning, but AI features will be disabled.
   console.warn("API_KEY 환경 변수가 설정되지 않았습니다. AI 기능이 비활성화됩니다.");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const ai = new GoogleGenAI({ apiKey: process.env.VITE_GEMINI_API_KEY || '' });
 
 export async function generateServerNames(keywords: string): Promise<string[]> {
-  if (!process.env.API_KEY) {
+  if (!process.env.VITE_GEMINI_API_KEY) {
     // Return some fun mock names if AI is disabled
     return ["픽셀왕국", "블록버스", "크래프트퀘스트", "마인레거시", "에테르크래프트"];
   }
@@ -46,7 +46,7 @@ export async function generateServerNames(keywords: string): Promise<string[]> {
 }
 
 export async function summarizeReviews(reviews: Review[]): Promise<string> {
-  if (!process.env.API_KEY) {
+  if (!process.env.VITE_GEMINI_API_KEY) {
     return "AI 기능이 비활성화되었습니다. API 키를 설정해주세요.";
   }
 
