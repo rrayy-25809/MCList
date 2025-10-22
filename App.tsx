@@ -155,7 +155,7 @@ const App: React.FC = () => {
                 </div>
             </div>
             <div className="text-center py-4 text-slate-500 text-sm border-t border-slate-800 mt-8">
-                <p>Powered by Gemini. Mojang Studios와 관련이 없습니다.</p>
+                <p>MineRank는 Mojang Studios와 관련이 없습니다.</p>
             </div>
         </div>
       </footer>
