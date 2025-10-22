@@ -5,8 +5,6 @@
   - 설명: 사용자 목록
 - GET /api/servers
   - 설명: 서버 목록 (쿼리: page, limit, q, sort 등)
-- GET /api/servers/:id
-  - 설명: 서버 상세
 - GET /api/reviews
   - 설명: 리뷰 목록 (쿼리: serverId, page, limit)
 - GET /api/gallery
@@ -37,7 +35,10 @@
 - 입력 검증 실패: 400, 인증 필요: 401, 권한 부족: 403, 서버 오류: 500
 
 TODO List
--[X] CORS 설정(클라이언트 도메인 허용)
--[ ] Tokenize 인증(TWS　였나 아무튼)
--[ ] 속도 제한(rate limiting)
--[ ] login/signup/logout
+- [X] CORS 설정(클라이언트 도메인 허용)
+- [ ] Tokenize 인증(TWS　였나 아무튼) Flask bcrypt 암호화 
+- [ ] 속도 제한(rate limiting) 할지 안 할지 모름
+- [ ] login/signup/logout
+- [ ] Endpoint들 구현
+- [ ] DB 연동
+- [ ] File Storage 폴더 생성 및 연결
